@@ -37,12 +37,17 @@ app.use(cors({
 
 
 
+
 app.use('/api/posts',PostRoutes)
 app.use('/api/user',UserRoutes)
 app.use('/api/cloudinary',ImageRoutes)
 
 const __dirname = path.resolve();
 app.use('/uploads',express.static(path.join(__dirname,'/uploads')));
+
+app.get('/',(req,res)=>{
+    res.send(`API is running visit <a href=${process.env.CLIENT_URL} >here</a> ${process.env.CLIENT_URL} `);
+})
 
 app.use(notFound)
 app.use(errorHandler)
