@@ -1,0 +1,68 @@
+ul{
+    list-style: none;
+}
+
+.search-bar{
+    display:flex;
+    flex-direction: row;
+    gap:5%;
+}
+
+
+
+.Logo {
+    /* width:70%; */
+    display: flex;
+    align-items: center;
+    margin: 0px 0;
+    justify-content: center;
+    
+}
+  
+.LogoLetter {
+    font-size: 30px;
+    font-weight: bolder;
+    color:green;
+    opacity: 0;
+    animation: fade-in 0.5s ease forwards;
+}
+  
+.header-section{
+    background-color: #343a40;
+    display: flex;
+    flex-direction: row;
+    color:white;
+}
+
+.datetime{
+    /* width:30%; */
+    font-size: x-small;
+    padding:1%;
+    word-spacing: 5%;
+    font-weight: bold;
+}
+
+.weather{
+    font-size: x-small;
+    padding:1%;
+    font-weight: bold;
+}
+
+.text{
+    font-size: x-small;
+    list-style: none;
+    color:white;
+}
+
+.text:hover{
+    color:red;
+}
+
+@keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}

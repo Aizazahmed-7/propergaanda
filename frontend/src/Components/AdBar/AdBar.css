@@ -1,0 +1,11 @@
+.ad-bar{
+    /* width: 1277px;
+    height: 247px; */
+    background-color:bisque;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding:100px;
+}

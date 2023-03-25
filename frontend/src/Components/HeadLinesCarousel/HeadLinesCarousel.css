@@ -1,0 +1,36 @@
+
+.carousel-item,.head-lines,.carousel-inner,.slide{
+    height: 500px;
+}
+
+.carousel-caption {
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6); /* set the background color to a dark grey with some transparency */
+    color: #fff; /* set the text color to white */
+}
+
+.carousel-control-next:hover,.carousel-control-prev:hover{
+  background-color: rgba(0, 0, 0, 0.05);
+}
+  
+
+@media only screen and (max-width: 750px) {
+    .carousel {
+      max-height: 280px;
+    }
+    .carousel-item {
+      height: 280px;
+    }
+    .carousel-item img {
+      object-fit: cover;
+      height: 280px;
+    }
+    .head-lines{
+      height:280px;
+    }
+}
+  
+  

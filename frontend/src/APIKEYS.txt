@@ -1,0 +1,8 @@
+New API :
+
+c78779994b7d4786bad0df5897807133
+
+
+Weather API:
+
+c6efabebf2b70fe71496649b0df00338
