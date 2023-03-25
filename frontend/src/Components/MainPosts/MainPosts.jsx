@@ -18,7 +18,8 @@ const MainPosts = ()=>{
 
     useEffect(()=>{
         async function getPosts(){
-            const {data} = await axios.get('/api/posts/getHomePagePosts');
+            const {data} = await axios.get('https://propergaanda.vercel.app/api/posts/getHomePagePosts');
+            console.log(data)
             setLatest(data.Latestposts)
             setFeatured(data.featuredPosts)
             setCarousel(data.pinnedPosts)
