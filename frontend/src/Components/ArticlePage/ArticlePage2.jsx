@@ -30,7 +30,7 @@ const ArticlePage2 = ()=>{
     useEffect(()=>{
 
         const getPost = async()=>{
-        const {data}= await axios.get(`/api/posts/getPostBySlugforadmin/${slug}`)
+        const {data}= await axios.get(`https://propergaanda.vercel.app/api/posts/getPostBySlugforadmin/${slug}`)
         setApprove(data.approved);
         setPin(data.pinned);
         console.log(data.approved)

@@ -12,7 +12,7 @@ export const Login = (email,password) => async (dispatch) => {
              },
              withCredentials:true
         }
-        const { data } = await axios.post('/api/user/login',{username:email,password},config)
+        const { data } = await axios.post('https://propergaanda.vercel.app/api/user/login',{username:email,password},config)
         
         dispatch(loginSuccess(data))     
       
@@ -34,7 +34,7 @@ export const Login = (email,password) => async (dispatch) => {
              },
              withCredentials:true
         }
-        const { data } = await axios.get('/api/user/getProfile',config)
+        const { data } = await axios.get('https://propergaanda.vercel.app/api/user/getProfile',config)
         
         dispatch(LoadUserSuccess(data))
 
@@ -58,7 +58,7 @@ export const Login = (email,password) => async (dispatch) => {
              },
              withCredentials:true
         }
-        const { data } = await axios.get('/api/user/getAdminProfile',config)
+        const { data } = await axios.get('https://propergaanda.vercel.app/api/user/getAdminProfile',config)
         
         dispatch(LoadUserSuccess(data))
       
@@ -79,7 +79,7 @@ export const Login = (email,password) => async (dispatch) => {
                     },
                     withCredentials:true
                 }
-                const { data } = await axios.get('/api/user/logout',config)
+                const { data } = await axios.get('https://propergaanda.vercel.app/api/user/logout',config)
                 dispatch(logout(data))        
             } catch (err) {
                 const error = err.response && err.response.data.message ? err.response.data.message : err.message

@@ -17,7 +17,7 @@ const ArticlePage = ()=>{
     useEffect(()=>{
 
         const getPost = async()=>{
-        const {data}= await axios.get(`/api/posts/getPostBySlug/${slug}`)
+        const {data}= await axios.get(`https://propergaanda.vercel.app/api/posts/getPostBySlug/${slug}`)
         console.log(data)
         setPost(data.post)
         setTopStories(data.relatedPosts)

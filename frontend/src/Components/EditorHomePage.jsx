@@ -135,7 +135,7 @@ const EditorHomePage = () => {
 
  try{
 
-      const {data} = await axios.post('/api/posts/creatPost', obj,config)
+      const {data} = await axios.post('https://propergaanda.vercel.app/api/posts/creatPost', obj,config)
       console.log(data);
       if (data.sucsess){
         toast.success("Post Created!")
@@ -185,7 +185,7 @@ const EditorHomePage = () => {
             },
             withCredentials:true
        }
-       axios.delete('api/cloudinary/deleteImg',{data:{ public_id:id}},config)
+       axios.delete('https://propergaanda.vercel.app/api/cloudinary/deleteImg',{data:{ public_id:id}},config)
           imges.splice(i, 1);
           setImges(imges);
           

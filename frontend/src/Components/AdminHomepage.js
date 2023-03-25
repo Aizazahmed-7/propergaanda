@@ -23,13 +23,13 @@ const AdminHomepage = () => {
 
     useEffect(() => {
         const fun = async()=>{
-            const res =  await axios.get('/api/posts/UnApprovedPosts');
+            const res =  await axios.get('https://propergaanda.vercel.app/api/posts/UnApprovedPosts');
             console.log(res.data);
             setUnApproved(res.data);
-            const res2 = await axios.get('/api/posts/getAllApprovedPosts');
+            const res2 = await axios.get('https://propergaanda.vercel.app/api/posts/getAllApprovedPosts');
             console.log(res2.data);
             setApproved(res2.data);
-            const res3 = await axios.get('/api/posts/getPinnedPosts');
+            const res3 = await axios.get('https://propergaanda.vercel.app/api/posts/getPinnedPosts');
             console.log(res3.data);
             setPinned(res3.data);
         } 

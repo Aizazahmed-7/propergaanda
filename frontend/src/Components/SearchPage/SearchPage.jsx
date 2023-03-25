@@ -22,7 +22,7 @@ const SearchPage = () => {
         async function getPosts(){
             
             try {
-                const {data} = await axios.get(`/api/posts/getSearchPost?keyword=${keyowrd}&category=${category}`);
+                const {data} = await axios.get(`https://propergaanda.vercel.app/api/posts/getSearchPost?keyword=${keyowrd}&category=${category}`);
                 console.log(data)
                 setPosts(data);
                 setLoading(false)
