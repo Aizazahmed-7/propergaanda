@@ -8,12 +8,14 @@ import {notFound,errorHandler} from './middleware/errorMiddleware.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import cloudinary from 'cloudinary';
+import cors from 'cors';
+
 
 
 
 dotenv.config();
 
-console.log("DB VALUE: ",process.env.PASSWORD)
+
 
 connectDB();
 
@@ -27,6 +29,13 @@ cloudinary.v2.config({
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
+app.use(cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+    methods: ['GET','POST','PUT','DELETE']
+}))
+
+
 
 app.use('/api/posts',PostRoutes)
 app.use('/api/user',UserRoutes)
