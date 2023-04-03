@@ -200,19 +200,20 @@ export const createPost = asyncHadnler(async (req, res) => {
 
     export const HomePagePosts = asyncHadnler(async (req, res) => {
 
-        const Latestposts = await Post.find({approved: true,pinned: false}).select('-content -keywords -createdAt -updatedAt -pinned -approved -featured').sort({createdAt: -1}).limit(6).populate('user','name') ;
-        const pinnedPosts = await Post.find({approved: true,pinned: true}).select('-content -keywords -createdAt -updatedAt -pinned -approved -featured -user')
-        const  MostViewedPosts = await Post.find({approved: true}).select('-content -keywords -createdAt -updatedAt -pinned -approved -featured -user').sort({views: -1}).limit(2);
-        const featuredPosts = await Post.find({approved: true,featured: true}).select('-content -keywords -createdAt -updatedAt -pinned -approved -featured -user').sort({createdAt: -1}).limit(2);
+                const Latestposts =  Post.find({approved: true,pinned: false}).select('-content -keywords -createdAt -updatedAt -pinned -approved -featured').sort({createdAt: -1}).limit(6).populate('user','name') ;
+        const pinnedPosts =  Post.find({approved: true,pinned: true}).select('-content -keywords -createdAt -updatedAt -pinned -approved -featured -user')
+        const  MostViewedPosts =  Post.find({approved: true}).select('-content -keywords -createdAt -updatedAt -pinned -approved -featured -user').sort({views: -1}).limit(2);
+        const featuredPosts = Post.find({approved: true,featured: true}).select('-content -keywords -createdAt -updatedAt -pinned -approved -featured -user').sort({createdAt: -1}).limit(2);
         
         
+       const values = await  Promise.all([Latestposts,pinnedPosts,MostViewedPosts,featuredPosts])
 
 
         const posts = {
-            Latestposts,
-            pinnedPosts,
-            MostViewedPosts,
-            featuredPosts
+            Latestposts: values[0],
+            pinnedPosts: values[1],
+            MostViewedPosts: values[2],
+            featuredPosts: values[3]
         }
 
         res.json(posts);
