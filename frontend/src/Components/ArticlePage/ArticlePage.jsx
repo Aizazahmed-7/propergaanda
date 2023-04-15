@@ -5,6 +5,7 @@ import axios from "axios"
 import Loading from "../Loading/Loading"
 import NavigationBar from "../NavBar/NavBar"
 import { Col, Container, Row } from "react-bootstrap"
+import api_link from "../../api_link"
 
 const ArticlePage = ()=>{
     const [post,setPost]=useState(null)
@@ -17,7 +18,7 @@ const ArticlePage = ()=>{
     useEffect(()=>{
 
         const getPost = async()=>{
-        const {data}= await axios.get(`https://propergaanda.vercel.app/api/posts/getPostBySlug/${slug}`)
+        const {data}= await axios.get(api_link + `/api/posts/getPostBySlug/${slug}`)
         console.log(data)
         setPost(data.post)
         setTopStories(data.relatedPosts)
@@ -65,7 +66,7 @@ const ArticlePage = ()=>{
             { post && (
                 <div className="post-page">
                     <div className='post'>
-                        <section>
+                        <section className="post-headline">
                             <h2>{post.title}</h2>
                             <p>{new Date(post.createdAt).toLocaleDateString(undefined,{year:"numeric",day:"numeric",month:"long"})}</p>
                             <img className="post-img" src={post.poster.url}></img>

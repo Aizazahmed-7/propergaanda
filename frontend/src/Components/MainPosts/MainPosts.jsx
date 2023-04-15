@@ -7,6 +7,9 @@ import CategoryArticles from "../Articles/categoryArticles"
 import {Link} from "react-router-dom"
 import axios from 'axios'
 import Loading from "../Loading/Loading"
+import api_link from "../../api_link"
+
+
 
 const MainPosts = ()=>{
 
@@ -18,7 +21,7 @@ const MainPosts = ()=>{
 
     useEffect(()=>{
         async function getPosts(){
-            const {data} = await axios.get('https://propergaanda.vercel.app/api/posts/getHomePagePosts');
+            const {data} = await axios.get(api_link+'/api/posts/getHomePagePosts');
             console.log(data)
             setLatest(data.Latestposts)
             setFeatured(data.featuredPosts)
@@ -39,12 +42,12 @@ const MainPosts = ()=>{
                 <div>
                     <HeadLinesCarousel posts={carousel}/>
                     <hr/>
-                    <TrendingArticles posts={latest}/>
+                    <FeaturedPost colorScheme="dark" title="FEATURED" article={featured[1]}/>
                     <hr/>
                     <LatestPosts posts={latest}/>
                     <hr/>
+                    <TrendingArticles posts={latest}/>
                     
-                    <FeaturedPost colorScheme="dark" title="FEATURED" article={featured[0]}/>
                    
                     <hr/>
                     <CategoryArticles categoryName="SPORTS" articles={trending}></CategoryArticles>
@@ -52,7 +55,7 @@ const MainPosts = ()=>{
                     <CategoryArticles categoryName="TECHNOLOGY" articles={latest}></CategoryArticles>
                     <hr/>
                     
-                    <FeaturedPost colorScheme="light" title="FEATURED" article={featured[1]}/>
+                    <FeaturedPost colorScheme="light" title="FEATURED" article={featured[0]}/>
                     
                     <hr/>
                     {/* <CategoryArticles categoryName="HEALTH" articles={category3Articles}></CategoryArticles>

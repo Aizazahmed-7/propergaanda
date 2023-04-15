@@ -14,6 +14,7 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import Loading from './Loading/Loading';
+import api_link from '../api_link';
 
 
 
@@ -135,7 +136,7 @@ const EditorHomePage = () => {
 
  try{
 
-      const {data} = await axios.post('https://propergaanda.vercel.app/api/posts/creatPost', obj,config)
+      const {data} = await axios.post(api_link+'/api/posts/creatPost', obj,config)
       console.log(data);
       if (data.sucsess){
         toast.success("Post Created!")
@@ -185,7 +186,7 @@ const EditorHomePage = () => {
             },
             withCredentials:true
        }
-       axios.delete('https://propergaanda.vercel.app/api/cloudinary/deleteImg',{data:{ public_id:id}},config)
+       axios.delete(api_link+'/api/cloudinary/deleteImg',{data:{ public_id:id}},config)
           imges.splice(i, 1);
           setImges(imges);
           

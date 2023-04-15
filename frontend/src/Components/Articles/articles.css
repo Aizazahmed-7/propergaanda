@@ -1,5 +1,13 @@
 /* Apply On All */
 
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h3{
+    font-family: 'Oxygen', sans-serif;
+}
+
 section{
     padding:5%;
     margin-top: 2%;
@@ -24,6 +32,8 @@ a{
 }
 
 h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
     font-size: 2.5rem;
     font-weight: bold;
     margin-top: 2rem;
@@ -82,7 +92,7 @@ h3:hover{
 }
 
 .trending-article{
-    margin:4%;
+    margin:4% 2%;
 }
 
 .slick-slide{
@@ -165,19 +175,19 @@ h3:hover{
 
 .article-img{
     width:100%;
-    height:40%;
+    height:50%;
 }
 
 .article-card{
     box-shadow: 2px 1px 1px 1px rgba(0.1,0,0.1,0.1);
     padding:3%;
     position: relative;
-    height:400px;
+    height:100%;
     
 }
 
 .article-bar a{
-    height:400px;
+    height:360px;
 }
 
 .card-category{
@@ -199,12 +209,16 @@ h3:hover{
 .card-title{
     color:#333;
     font-weight: bolder;
-    font-size: larger;
+    font-size: medium;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 600;
+    margin:4% 0%;
 }
 
 .card-desc{
     color:#363030;
-    
+    font-size: small;
+    font-weight: 500;
 }
 
 .card-author{
@@ -241,6 +255,7 @@ h3:hover{
     }
     .article-bar{
         grid-template-columns: 1fr;
+        padding:10%;
     }
     .side-bar{
         display: none;
@@ -300,6 +315,10 @@ h3:hover{
 }
 
 @media only screen and (max-width: 767px) {
+    .featured-section{
+        margin-top:120px;
+        padding:6%;
+    }
     .featured-post{
         grid-template-columns: 1fr;
         gap:5%;

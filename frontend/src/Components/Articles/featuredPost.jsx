@@ -6,7 +6,7 @@ import "./articles.css"
 
 const FeaturedPost=(props)=>{
     return(
-        <section className={`${props.colorScheme}`}>
+        <section className={`${props.colorScheme} featured-section`}>
             <h1>{props.title}</h1>
             {
                 props && (

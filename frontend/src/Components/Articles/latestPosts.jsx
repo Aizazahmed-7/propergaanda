@@ -10,14 +10,15 @@ const LatestPosts=({posts})=>{
     const url = `https://res.cloudinary.com/${cloudName}/image/upload/`;
 
     function ArticleCard(props){
-        if(props.title.length>105){
-            props.title = props.title.slice(0,100) + "..."
+        let shortTitle=props.title
+        if(props.title.length>60){
+            shortTitle= props.title.slice(0,55) + "..."
         }
         return(
                 <div className="article-card">
                     <img effect="opacity" className="article-img" src={props.image} alt={props.title} ></img>
                     {/* <LazyLoadImage effect="opacity" className="article-img" src={props.image} alt={props.title} ></LazyLoadImage> */}
-                    <h5 className="card-title">{props.title}</h5>
+                    <h5 className="card-title">{shortTitle}</h5>
                     <p className='card-desc'>{props.description}</p>
                     <p className='card-author'>{props.author}</p>
                     <div className='card-category'>{props.category[0]}</div>
@@ -67,8 +68,7 @@ const LatestPosts=({posts})=>{
                                                 <img src={imgsrc} className="side-bar-img"></img>
                                             </div>
                                             <hr/>
-                                        </a>
-                                        
+                                        </a> 
                                     )
                                 })}
                             </div>

@@ -4,6 +4,7 @@ import Loading from "../Loading/Loading";
 import axios from "axios";
 import { Alert, Col, Container, Row, Stack } from "react-bootstrap";
 import "./SearchPage.css"
+import api_link from "../../api_link";
 
 const SearchPage = () => {
 
@@ -22,7 +23,7 @@ const SearchPage = () => {
         async function getPosts(){
             
             try {
-                const {data} = await axios.get(`https://propergaanda.vercel.app/api/posts/getSearchPost?keyword=${keyowrd}&category=${category}`);
+                const {data} = await axios.get(api_link+`/api/posts/getSearchPost?keyword=${keyowrd}&category=${category}`);
                 console.log(data)
                 setPosts(data);
                 setLoading(false)

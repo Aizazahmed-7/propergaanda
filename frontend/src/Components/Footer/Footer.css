@@ -1,0 +1,51 @@
+
+.footer{
+    color:azure;
+    padding:2% 4%;
+    background-color: rgb(7, 7, 80);
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer h1{
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 600;
+    color:azure;
+    font-size: larger;
+}
+
+.footer p{
+    font-weight:200;
+    font-size:small;
+}
+
+.footer-heading{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-socials{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:5%;
+}
+
+.footer-options{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    margin-top:4%;
+}
+
+.footer-section{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { loginSuccess,loginRequest,loginFail,logout,LoadUserFail,LoadUserRequest,LoadUserSuccess} from '../reducers/userReducer'
+import api_link from '../api_link'
 
 export const Login = (email,password) => async (dispatch) => {
     
@@ -12,7 +13,7 @@ export const Login = (email,password) => async (dispatch) => {
              },
              withCredentials:true
         }
-        const { data } = await axios.post('https://propergaanda.vercel.app/api/user/login',{username:email,password},config)
+        const { data } = await axios.post(api_link+'/api/user/login',{username:email,password},config)
         
         dispatch(loginSuccess(data))     
       
@@ -34,7 +35,7 @@ export const Login = (email,password) => async (dispatch) => {
              },
              withCredentials:true
         }
-        const { data } = await axios.get('https://propergaanda.vercel.app/api/user/getProfile',config)
+        const { data } = await axios.get(api_link+'/api/user/getProfile',config)
         
         dispatch(LoadUserSuccess(data))
 
@@ -58,7 +59,7 @@ export const Login = (email,password) => async (dispatch) => {
              },
              withCredentials:true
         }
-        const { data } = await axios.get('https://propergaanda.vercel.app/api/user/getAdminProfile',config)
+        const { data } = await axios.get(api_link+'/api/user/getAdminProfile',config)
         
         dispatch(LoadUserSuccess(data))
       
@@ -79,7 +80,7 @@ export const Login = (email,password) => async (dispatch) => {
                     },
                     withCredentials:true
                 }
-                const { data } = await axios.get('https://propergaanda.vercel.app/api/user/logout',config)
+                const { data } = await axios.get(api_link+'/api/user/logout',config)
                 dispatch(logout(data))        
             } catch (err) {
                 const error = err.response && err.response.data.message ? err.response.data.message : err.message
