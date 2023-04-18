@@ -18,7 +18,7 @@ const HomePage = () => {
 
   return (
     <>
-    {/* <AdsComponent dataAdSlot={'8457520385'}/> */}
+     <AdsComponent/> 
     <MainPosts/>
     <Footer/>
     </>
