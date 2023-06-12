@@ -80,7 +80,8 @@ export const Login = (email,password) => async (dispatch) => {
                     },
                     withCredentials:true
                 }
-                const { data } = await axios.get(api_link+'/api/user/logout',config)
+                const { data } = await axios.get(api_link+
+                '/api/user/logout',config)
                 dispatch(logout(data))        
             } catch (err) {
                 const error = err.response && err.response.data.message ? err.response.data.message : err.message
