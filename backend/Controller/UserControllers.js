@@ -60,14 +60,15 @@ export const loginUser = asyncHadnler(async (req, res) => {
 
 export const logout = asyncHadnler(async (req, res) => {
 
-    res.clearCookie('token');
-
-    res.status(200).json({
+    res.status(200).cookie('token',null,{
+        expires: new Date(Date.now()),
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+    }).json({
         success: true,
         message: 'logged out successfully'
     })
-
-    res.end();
 
 })
 

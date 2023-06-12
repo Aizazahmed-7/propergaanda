@@ -7,6 +7,7 @@ import NavigationBar from '../NavBar/NavBar'
 import MainPosts from '../MainPosts/MainPosts'
 import ArticlePage from '../ArticlePage/ArticlePage'
 import Footer from '../Footer/Footer'
+import AdsComponent from '../AdsComponets'
 
 const HomePage = () => {
 
@@ -17,6 +18,7 @@ const HomePage = () => {
 
   return (
     <>
+     {/* <AdsComponent/>  */}
     <MainPosts/>
     <Footer/>
     </>

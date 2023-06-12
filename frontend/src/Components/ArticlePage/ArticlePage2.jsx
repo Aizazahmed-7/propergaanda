@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom"
 import { clearError } from '../../reducers/userReducer';
 import { Button } from "react-bootstrap"
 import PopupWithButtons from "./PopupWithButtons"
+import  api_link from '../../api_link'
 
 
 const ArticlePage2 = ()=>{
@@ -30,22 +31,24 @@ const ArticlePage2 = ()=>{
     useEffect(()=>{
 
         const getPost = async()=>{
-        const {data}= await axios.get(`https://propergaanda.vercel.app/api/posts/getPostBySlugforadmin/${slug}`)
+            const config ={
+                headers:{
+                   'Content-Type':'application/json'
+                },
+                withCredentials:true
+           }
+        const {data}= await axios.get(`${api_link}/api/posts/getPostBySlugforadmin/${slug}`,config)
         setApprove(data.approved);
         setPin(data.pinned);
-        console.log(data.approved)
         setPost(data)
         setFlag(true)
 
         }
-        getPost()
         dispatch(LoadAdmin())
+        getPost()
 
     },[dispatch])
 
-    // if(post){
-    //     console.log(post.content)
-    // }
 
     if(error){
             
@@ -63,22 +66,39 @@ const ArticlePage2 = ()=>{
         return null
     }
     const handleApprove = async()=>{
-        console.log("Approve");
-        const res = await axios.post(`/api/posts/approvePost/${post._id}`);
+        const config ={
+            headers:{
+               'Content-Type':'application/json'
+            },
+            withCredentials:true
+       }
+        const res = await axios.post(`${api_link}/api/posts/approvePost/${post._id}`,config);
         setApprove(res.data.approved);
 
     }
 
     const deletePost = async()=>{
         console.log("Reject")
-        const res = await axios.delete(`/api/posts/rejectPost/${post._id}`);
+        const config ={
+            headers:{
+               'Content-Type':'application/json'
+            },
+            withCredentials:true
+       }
+        const res = await axios.delete(`${api_link}/api/posts/rejectPost/${post._id}`,config);
         setPost(null);
     }
     const handleReject = async()=>{
         setPopup(true);
     }
     const handlePin = async()=>{
-        const res = await axios.post(`/api/posts/togglePin/${post._id}`);
+        const config ={
+            headers:{
+               'Content-Type':'application/json'
+            },
+            withCredentials:true
+       }
+        const res = await axios.post(`${api_link}/api/posts/togglePin/${post._id}`,config);
         console.log(res.data.pinned);
         setPin(()=>!pin)
     }

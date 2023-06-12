@@ -10,7 +10,7 @@ router.route('/login').post(loginUser);
 router.route('/getProfile').get(isAuthenticatedUser,getUser);
 router.route('/getAdminProfile').get(isAdmin,getAdmin);
 router.route('/getUsers').get(isAdmin,getAllUsers);
-router.route('/logout').get(logout);
+router.route('/logout').post(logout);
 
 
 
